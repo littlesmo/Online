@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: mm2-collector
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: ROBLOSECURITY
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
